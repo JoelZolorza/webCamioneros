@@ -18,7 +18,7 @@ function getIdFromUrl() {
 
 function getCamionero() {
     const id = getIdFromUrl()
-    const url = `http://localhost:5000/camioneros/${id}`
+    const url = `http://localhost:5000/camionero/${id}`
 
     fetch(url).then(res => { return res.json() }).then(object => {
         document.getElementById("nombre").value = object.nombre
@@ -37,8 +37,8 @@ function getCamionero() {
 }
 
 
-function listarCamionero() {
-    let url = 'http://localhost:5000/camioneros';
+function listarCamioneros() {
+    let url = 'http://localhost:5000/camionero';
     fetch(url, {})
         .then(response => response.json())
         .then(data => {
@@ -76,7 +76,7 @@ function crearCamionero() {
     disableButton(id = "guardar")
 
     // Preparar data
-    const url = 'http://localhost:5000/camioneros/create'
+    const url = 'http://localhost:5000/camionero/create'
     const nombre = document.getElementById("nombre")
     const apellido = document.getElementById("apellido")
     const dni = document.getElementById("dni")
@@ -113,7 +113,7 @@ function editarCamionero() {
 
     // Preparar data
     const camionero_id = getIdFromUrl()
-    const url = `http://localhost:5000/camioneros/update/${camionero_id}`
+    const url = `http://localhost:5000/camionero/update/${camionero_id}`
     const nombre = document.getElementById("nombre")
     const apellido = document.getElementById("apellido")
     const dni = document.getElementById("dni")
@@ -149,8 +149,8 @@ function eliminarCamionero(id) {
     const nombre = item.querySelector('.nombre').innerText
     const apellido = item.querySelector('.apellido').innerText
 
-    if (confirm(`¿Desea eliminar el cliente "${nombre} ${apellido}"?`)) {
-        const url = `http://localhost:5000/camioneros/delete/${id}`
+    if (confirm(`¿Desea eliminar el empleado"${nombre} ${apellido}"?`)) {
+        const url = `http://localhost:5000/camionero/delete/${id}`
 
         fetch(url, {
             method: 'DELETE'

@@ -18,6 +18,8 @@ Camionero.init({
     salario: DataTypes.NUMBER,
 
     poblacion: DataTypes.STRING,
+    
+    telefono: DataTypes.STRING
 }, {
     sequelize,
     modelName: 'camionero',
