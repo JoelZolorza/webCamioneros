@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-const { Camionero, Paquete } = require('./database/models')
+const { Camionero, Paquete, Camion, Provincia } = require('./database/models')
 const sequelize = require("./database/sequelize")
 const router = require('./routes')
 const port = 5000

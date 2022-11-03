@@ -9,3 +9,29 @@ ul {
     background-color: yellowgreen;
     border-color: rgb(0, 0, 0);
 }
+
+#menu{
+    background-color: darkslategrey;
+}
+
+#menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li{
+    display: inline-block;
+}
+
+#menu ul li a{
+    color: darkslateblue;
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+}
+
+#menu ul li a:hover{
+    background-color: white;
+}
+
