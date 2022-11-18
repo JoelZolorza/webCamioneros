@@ -1,35 +1,31 @@
 const router = require('express').Router()
-const { Paquete } = require('../database/models')
+const { Envio } = require('../database/models')
 
 router.get("/:id", (req, res) => {
-    Paquete.findByPk(req.params.id).then(obj => {
+    Envio.findByPk(req.params.id).then(obj => {
         res.json(obj)
     })
 })
 
 router.get("/", (req, res) => {
-    Paquete.findAll({}).then(list => {
+    Envio.findAll({}).then(list => {
         res.json(list)
     })
 })
 
 router.post("/create", (req, res) => {
-    Paquete.create({
-        codigoPaquete: req.body.codigoPaquete,
-        descripcion: req.body.descripcion,
-        destinatario: req.body.destinatario,
-        direccionDestinatario: req.body.direccionDestinatario
-    }).then(paquete => {
-        res.json(paquete)
+    Envio.create({
+        codigoEnvio: req.body.codigoEnvio,
+       
+    }).then(envio => {
+        res.json(envio)
     })
 })
 
 router.put('/update/:id', (req, res) => {
-    Paquete.update({
-        codigoPaquete: req.body.codigoPaquete,
-        descripcion: req.body.descripcion,
-        destinatario: req.body.destinatario,
-        direccionDestinatario: req.body.direccionDestinatario
+    Envio.update({
+        codigoEnvio: req.body.codigoEnvio,
+        
     }, {
         where: {
             id: req.params.id
@@ -42,7 +38,7 @@ router.put('/update/:id', (req, res) => {
 })
 
 router.delete('/delete/:id', (req, res) => {
-    Paquete.destroy({
+    Envio.destroy({
         where: {
             id: req.params.id
         }

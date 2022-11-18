@@ -21,7 +21,7 @@ function getCamion() {
     const url = `http://localhost:5000/camion/${id}`
 
     fetch(url).then(res => { return res.json() }).then(object => {
-        document.getElementById("matricula").value = object.matricula
+        document.getElementById("matricula").value = object.matriculaCamion
         document.getElementById("descripcion").value = object.descripcion
         document.getElementById("conductor").value = object.conductor
        
@@ -46,7 +46,7 @@ function listarCamiones() {
                 html += `
                     <tr id="${camio.id}">
                         <td>${camio.id}</td>
-                        <td class="matricula">${camio.matricula}</td>
+                        <td class="matricula">${camio.matriculaCamion}</td>
                         <td class="descripcion">${camio.descripcion}</td>
                         <td class="conductor">${camio.conductor}</td>
                         <td>
@@ -69,13 +69,13 @@ function crearCamion() {
 
     // Preparar data
     const url = 'http://localhost:5000/camion/create'
-    const matricula = document.getElementById("matricula")
+    const matriculaCamion = document.getElementById("matricula")
     const descripcion = document.getElementById("descripcion")
     const conductor = document.getElementById("conductor")
     
 
     const data = {
-        'matricula': matricula.value,
+        'matriculaCamion': matriculaCamion.value,
         'descripcion': descripcion.value,
         'conductor': conductor.value,
     }
@@ -99,13 +99,13 @@ function editarCamion() {
     // Preparar data
     const camion_id = getIdFromUrl()
     const url = `http://localhost:5000/camion/update/${camion_id}`
-    const matricula = document.getElementById("matricula")
+    const matriculaCamion = document.getElementById("matricula")
     const descripcion = document.getElementById("descripcion")
     const conductor = document.getElementById("conductor")
     
 
     const data = {
-        'matricula': matricula.value,
+        'matriculaCamion': matriculaCamion.value,
         'descripcion': descripcion.value,
         'conductor': conductor.value,
         
